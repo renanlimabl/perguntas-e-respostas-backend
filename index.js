@@ -1,21 +1,33 @@
 const express = require('express');
-const client = require('./config/postgres')
+const client = require('./config/postgres');
 
 const app = express();
 
 app.use(express.json())
 
-app.get('/', (request, response) => {
-  return res.status(200).json({ message: 'Servidor rodando' })
+const PerguntasController = require('./controllers/PerguntasController');
+
+app.get('/', async (request, response) => {
+  const queryText = 'SELECT * FROM perguntas_table';
+
+  try {
+    const data = await client.query(queryText)
+    return response.status(200).json({ response: data.rows })
+  } catch (e) {
+    console.log(e)
+  }
+
+
 });
 
 app.post('/save', async (request, response) => {
-  const newQuery = 'INSERT INTO perguntas_table(titulo, descricao) VALUES($1, $2) RETURNING *';
+  // const queryText = 'INSERT INTO perguntas_table(titulo, descricao) VALUES($1, $2) RETURNING *';
+  const queryText = PerguntasController.create('perguntas_table', 'titulo', 'descricao')
   const values = ['Agora foi!!', 'Postgres e Nodejs é massa :D'];
   try {
-    const data = await client.query(newQuery, values)
+    const data = await client.query(queryText, values)
     console.log(data.rows)
-    return response.status(200).json({ message: data.rows })
+    return response.status(200).json({ response: data.rows })
   } catch (e) {
     console.log(e.stack)
   }

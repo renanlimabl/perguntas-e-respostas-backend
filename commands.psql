@@ -1,10 +1,13 @@
+--login 
+psql -u root
+
 -- mostrar databases (mesma coisa que o show databases no mysql)
 \l
 
 -- criar database
 CREATE DATABASE perguntas;
 
--- utilizar database (mesma coisa que o use no mysql)
+-- utilizar database (mesma coisa que o "use" no mysql)
 \c database_name
 
 -- criar tabela
