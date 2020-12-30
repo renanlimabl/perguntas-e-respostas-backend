@@ -1,5 +1,3 @@
-const client = require('../config/postgres');
-const QueryBuilder = require('../utils/QueryBuilder');
 const PerguntasModel = require('../models/PerguntasModel');
 
 
