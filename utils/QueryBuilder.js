@@ -1,11 +1,11 @@
 const QueryBuilder = {
   createQuery: (table_name, ...columns) => {
     // columns
-    const textValues = [...columns].join(',');
+    const textValues = columns.join(',');
 
     // create numbers of values for the query ex: $1, $2...
     let numbersOfValues = [];
-    for (let i = 1; i <= [...columns].length; i++) {
+    for (let i = 1; i <= columns.length; i++) {
       numbersOfValues.push(`$${i}`)
     }
     numbersOfValues.join(',')

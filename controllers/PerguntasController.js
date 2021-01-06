@@ -13,7 +13,6 @@ const PerguntasController = {
     }
   },
   all: async (request, response) => {
-    console.log('all')
     try {
       const data = await PerguntasModel.FindAll('perguntas_table');
       return response.status(200).json({ response: data.rows })
