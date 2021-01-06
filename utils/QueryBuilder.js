@@ -14,7 +14,7 @@ const QueryBuilder = {
     return `INSERT INTO ${table_name}(${textValues}) VALUES(${numbersOfValues}) RETURNING *`
   },
   queryGet: (table_name) => {
-    return `SELECT * FROM ${table_name}`
+    return `SELECT * FROM ${table_name} ORDER BY id DESC`
   },
 }
 

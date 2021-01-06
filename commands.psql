@@ -1,5 +1,5 @@
 --login 
-psql -u root
+psql -U root
 
 -- mostrar databases (mesma coisa que o show databases no mysql)
 \l
@@ -23,3 +23,6 @@ CREATE TABLE perguntas_table (
 
 -- mostrar dados da tabela
 SELECT * FROM perguntas_table;
+
+-- mostrar dados da tabela de baixo pra cima.
+SELECT * FROM perguntas_table ORDER BY id DESC;
