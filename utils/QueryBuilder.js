@@ -16,6 +16,9 @@ const QueryBuilder = {
   queryGet: (table_name) => {
     return `SELECT * FROM ${table_name} ORDER BY id DESC`
   },
+  queryGetOne: (table_name, id) => {
+    return `SELECT * FROM ${table_name} WHERE id = ${id}`
+  }
 }
 
 module.exports = QueryBuilder;

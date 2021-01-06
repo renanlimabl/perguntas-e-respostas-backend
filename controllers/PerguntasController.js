@@ -13,13 +13,23 @@ const PerguntasController = {
     }
   },
   all: async (request, response) => {
+    console.log('all')
     try {
-      const data = await PerguntasModel.FindAll();
+      const data = await PerguntasModel.FindAll('perguntas_table');
       return response.status(200).json({ response: data.rows })
     } catch (e) {
       console.log(e)
     }
   },
+  index: async (request, response) => {
+    const { id } = request.params
+    try {
+      const data = await PerguntasModel.index('perguntas_table', id);
+      return response.status(200).json({ response: data.rows })
+    } catch (e) {
+      console.log(e)
+    }
+  }
 }
 
 module.exports = PerguntasController;

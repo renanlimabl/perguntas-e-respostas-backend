@@ -10,14 +10,20 @@ const Create = async (values) => {
   return data;
 }
 
-const FindAll = async () => {
-  const queryText = QueryBuilder.queryGet('perguntas_table');
+const FindAll = async (table_name) => {
+  const queryText = QueryBuilder.queryGet(table_name);
   const data = await client.query(queryText)
   return data;
 }
 
+const index = async (table_name, id) => {
+  const queryText = QueryBuilder.queryGetOne(table_name, id)
+  const data = await client.query(queryText);
+  return data;
+}
 
 module.exports = {
   Create,
-  FindAll
+  FindAll,
+  index,
 };
