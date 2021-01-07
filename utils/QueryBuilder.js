@@ -3,6 +3,8 @@ const QueryBuilder = {
     // columns
     const textValues = columns.join(',');
 
+    // console.log(columns)
+
     // create numbers of values for the query ex: $1, $2...
     let numbersOfValues = [];
     for (let i = 1; i <= columns.length; i++) {

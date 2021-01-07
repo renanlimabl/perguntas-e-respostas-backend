@@ -17,6 +17,12 @@ CREATE TABLE perguntas_table (
   descricao TEXT NOT NULL
 );
 
+CREATE TABLE resposta_table (
+  id SERIAL PRIMARY KEY,
+  resposta VARCHAR(255) NOT NULL,
+  id_pergunta INT
+);
+
 -- mostrar tabela (mesma coisa que o desc no mysql)
 \d perguntas;
 

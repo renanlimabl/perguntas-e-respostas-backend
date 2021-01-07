@@ -9,4 +9,6 @@ perguntasRoutes.get('/', PerguntasController.all)
 
 perguntasRoutes.post('/save', PerguntasController.create);
 
+perguntasRoutes.post('/responder', PerguntasController.create);
+
 module.exports = perguntasRoutes;
